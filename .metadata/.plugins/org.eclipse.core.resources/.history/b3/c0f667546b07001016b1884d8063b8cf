@@ -1,0 +1,23 @@
+package aula_5;
+
+import java.util.Scanner;
+
+public class Teste {
+	public static void main(String args[]) {
+		Lista obj;
+		obj = new Lista();
+		Scanner entrada;
+		entrada = new Scanner(System.in);
+		obj.ex1();
+		//obj.ex2(entrada);
+		//obj.ex3(entrada);
+		//obj.ex4(entrada);
+		//obj.ex5(entrada);
+		//obj.ex6();
+		//obj.ex7(entrada);
+		//obj.ex8(entrada);
+		
+		entrada.close();
+		
+	}
+}

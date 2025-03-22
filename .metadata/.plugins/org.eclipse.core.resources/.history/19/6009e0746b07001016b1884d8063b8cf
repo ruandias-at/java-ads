@@ -1,0 +1,196 @@
+package aula_5;
+
+import java.util.Scanner;
+
+public class Lista {
+	
+	// 1
+	public void ex1() {
+		int soma = 0;
+		int total = 0;
+		for (int i = 1; i <= 500; i++) {
+			if (i % 2 != 0 && i % 3 == 0) {
+				soma += i;
+				total++;
+			}
+		}
+		System.out.println("Foram encontrados " + total + " valores e a "
+				+ "soma deles deu " + soma);
+	}
+	
+	// 2
+	public void ex2(Scanner input) {
+		double altura;
+		double alturaMax = -99999;
+		double alturaMin = 99999;
+		for (int i = 1; i <= 5; i++) {
+			System.out.print("Digite a " + i + "ª altura: ");
+			altura = input.nextDouble();
+			if (altura > alturaMax) {
+				alturaMax = altura;
+			}
+			if (altura < alturaMin) {
+				alturaMin = altura;
+			}
+		}
+		System.out.println("A maior altura registrada foi " + alturaMax);
+		System.out.println("A menor altura registrada foi " + alturaMin);	
+	}
+	
+	// 3
+	public void ex3(Scanner input) {
+		
+		int num;
+		int positivos = 0, negativos = 0, total = 0, somaTotal = 0;
+		while (true) {
+			System.out.println("Digite um valor[0 para parar]: ");
+			num = input.nextInt();
+			
+			if (num != 0) {
+				total ++;
+				somaTotal += num;
+			}
+		
+			if (num > 0) {
+				positivos ++;
+			} else if (num < 0) {
+				negativos ++;
+			}
+			
+			if(positivos > 0 && negativos > 0 && num == 0) {
+				break;
+			} else if (positivos > 0 && num == 0) {
+				System.out.println("PELO MENOS UM NEGATIVO DEVE SER INSERIDO!");
+			} else if (negativos > 0 && num == 0) {
+				System.out.println("PELO MENOS UM POSITIVO DEVE SER INSERIDO!");
+			} else if (num == 0) {
+				System.out.println("NECESSARIO DIGITAR PELO MENOS UM POSITIVO E UM NEGATIVO!");
+			}
+		}
+		
+		double porcPositivos = 0, porcNegativos = 0, media = 0;
+		media = (double)somaTotal / total;
+		
+		porcPositivos = ((double)positivos / total) * 100;
+		porcNegativos = ((double)negativos / total) * 100;
+		
+		System.out.println("Média dos números: " + media);
+		System.out.println("Quantidade de números positivos: " + positivos);
+		System.out.println("Quantidade de números negativos: " + negativos);
+		System.out.println("Porcentagem de positivos: " + porcPositivos + "%");
+		System.out.println("Porcentagem de negativos: " + porcNegativos + "%");
+	}
+	
+	// 4
+	public void ex4(Scanner input) {
+		int range1 = 0, range2 = 0, range3 = 0, range4 = 0;
+		int num;
+
+		do {
+			System.out.print("Digite um número [negativo para sair]: ");
+			num = input.nextInt();
+			
+			if (num >= 0 && num <= 25) {
+				range1++;
+			} else if (num >= 26 && num <= 50) {
+				range2++;
+			} else if (num >= 51 && num <= 75) {
+				range3++;
+			} else if (num >= 76 && num <= 100) {
+				range4++;
+			}
+		} while (num >= 0);
+		
+		System.out.println("Intervalo [0-25]: " + range1);
+		System.out.println("Intervalo [26-50]: " + range2);
+		System.out.println("Intervalo [51-75]: " + range3);
+		System.out.println("Intervalo [76-100]: " + range4);
+	}
+	
+	// 5
+	public void ex5(Scanner input) {
+		int pares = 0, impares = 0, somaPares = 0, somaImpares = 0, total = 0;
+		int num;
+		
+		do {
+			System.out.print("Digite um número positivo (0 para sair): ");
+			num = input.nextInt();
+			
+			if (num > 0) {
+				total++;
+				if (num % 2 == 0) {
+					pares++;
+					somaPares += num;
+				} else {
+					impares++;
+					somaImpares += num;
+				}
+			}
+		} while (num != 0);
+		
+		double mediaPares, mediaGeral;
+		
+		if (pares > 0) {
+			mediaPares = (double)somaPares / pares;
+		} else {
+			mediaPares = 0;
+		}
+		if (total > 0) {
+			mediaGeral = (double)(somaPares + somaImpares) / total;
+		} else {
+			mediaGeral = 0;
+		}
+		
+		//Estrutra condicional por meio de operador ternário(Mais simples, porém nao aplicada na matéria ainda.)
+		//double mediaPares = pares > 0 ? (double) somaPares / pares : 0;
+		//double mediaGeral = total > 0 ? (double) (somaPares + (impares * 1)) / total : 0;
+		
+		System.out.println("Quantidade de números pares: " + pares);
+		System.out.println("Quantidade de números ímpares: " + impares);
+		System.out.println("Média dos números pares: " + mediaPares);
+		System.out.println("Média geral dos números: " + mediaGeral);
+	}
+	
+	// 6
+	public void ex6() {
+		System.out.println("Números ímpares entre 100 e 200:");
+		for (int i = 101; i < 200; i ++) {
+			if (i % 2 == 1) {
+				System.out.println(i);
+			}
+		}
+	}
+	
+	// 7
+	public void ex7(Scanner input) {
+		System.out.print("Digite um número entre 1 e 10 para calcular a tabuada: ");
+		int n = input.nextInt();
+		
+		if (n < 1 || n > 10) {
+			System.out.println("Número fora do intervalo permitido.");
+			return;
+		}
+		
+		System.out.println("Tabuada do " + n + ":");
+		for (int i = 0; i <= 10; i++) {
+			System.out.println(n + " x " + i + " = " + (n * i));
+		}
+	}
+	
+	// 8
+	public void ex8(Scanner input) {
+		System.out.print("Digite um número para calcular o fatorial: ");
+		int n = input.nextInt();
+		
+		int resultado = 1;
+		System.out.print(n + "!: ");
+		for (int i = n; i >= 1; i--) {
+			resultado *= i;
+			System.out.print(i);
+			if (i > 1) {
+				System.out.print(" x ");
+			}
+		}
+		System.out.println(" = " + resultado);
+	}
+}
